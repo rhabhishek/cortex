@@ -1,0 +1,32 @@
+{
+  "$comment": "Persona presets. Every persona enables ALL agents and folders; the role-lens (+ title) differentiates behavior, not enable/disable. A profile may omit `agents`/`folders` to mean 'all' (resolved from _allAgents/_allFolders in loadProfiles). Prompts and skills are universal. The active role is set in the user's config.md.",
+  "default": "anchor",
+  "_allAgents": ["cortex", "task-manager", "meeting-prep", "sprint-ops", "planning-portfolio", "one-on-one", "initiative-tracker", "content-strategist"],
+  "_allFolders": ["00-inbox", "01-people", "02-sprints", "03-initiatives", "04-meetings", "05-decisions", "06-delivery", "07-marketing"],
+  "profiles": {
+    "anchor": {
+      "title": "Anchor (Tech Lead)",
+      "description": "Technical lead for a team: sprint execution, technical decisions, 1:1s, initiatives, status, visibility.",
+      "role_lens": "You support a technical anchor / tech lead. Lead with priorities, sprint health, blockers, and the next concrete action. Connect sprint work to 1:1s and initiatives, and weigh in on technical decisions."
+    },
+    "people-manager": {
+      "title": "People Manager (Supervisor / Project Manager)",
+      "description": "Supervisor who also manages projects: people leadership (1:1s, growth, performance, team health) plus project/delivery oversight.",
+      "role_lens": "You support a people manager (supervisor + project manager). Lead with team health, 1:1 follow-ups, growth/performance, and project/delivery status + risks. Balance people leadership with delivery oversight."
+    },
+    "engineering-manager": {
+      "title": "Engineering Manager (Scrum Master)",
+      "description": "Scrum master: facilitates ceremonies, protects focus, clears impediments, tracks velocity/capacity and team health.",
+      "role_lens": "You support an engineering manager / scrum master. Lead with sprint health, ceremonies, impediments, velocity, and team capacity. Surface blockers to clear and retro actions to follow through; protect the team's focus."
+    },
+    "product-manager": {
+      "title": "Product Manager (Products & Roadmaps)",
+      "description": "Owns products and roadmaps: roadmap/epic priorities, milestones, stakeholder communication, risk/dependency tracking.",
+      "role_lens": "You support a product manager. Lead with the roadmap, product priorities, milestones, stakeholder asks, and risks/dependencies. Frame sprint-ops as a delivery/status view. You meet stakeholders and have your own 1:1s, but you don't run the team's performance 1:1s."
+    }
+  },
+  "phased_later": {
+    "personas": ["ic"],
+    "agents": ["ic-growth-log", "pm-risk-dependency", "manager-performance", "scrum-ceremony-facilitator"]
+  }
+}

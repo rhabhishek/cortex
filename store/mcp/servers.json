@@ -1,0 +1,25 @@
+{
+  "$comment": "MCP server catalog. Provisioned into VS Code's user mcp.json and ~/.copilot/mcp-config.json by `cortex setup`. GitHub authenticates with the stored PAT via an Authorization header (${env:GITHUB_TOKEN} from secure storage). Jira uses Atlassian's official remote Rovo server over OAuth (sign in once in-editor). Confluence is intentionally NOT an MCP server — it is served by the confluence REST skill using ATLASSIAN_API_TOKEN + CONFLUENCE_URL. Server keys match the tool-ID prefixes in lib/core.mjs (CAPABILITY_MAP). _source is kept so Cortex updates/removes only its own entries; other _* fields are display metadata, stripped on write.",
+  "servers": {
+    "io.github.github/github-mcp-server": {
+      "_source": "cortex",
+      "_label": "GitHub (official MCP, PAT)",
+      "_description": "GitHub's official remote MCP server, authenticated with your stored PAT (no OAuth).",
+      "_optional": true,
+      "_requires": ["GITHUB_TOKEN"],
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${env:GITHUB_TOKEN}"
+      }
+    },
+    "atlassian": {
+      "_source": "cortex",
+      "_label": "Atlassian (Jira Rovo MCP)",
+      "_description": "Atlassian's official remote Rovo MCP server for Jira (OAuth — sign in once in-editor). Confluence is handled by the REST skill, not MCP.",
+      "_optional": true,
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/mcp"
+    }
+  }
+}
